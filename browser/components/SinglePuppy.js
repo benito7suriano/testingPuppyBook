@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 class SinglePuppy extends React.Component {
   constructor() {
@@ -19,9 +20,10 @@ class SinglePuppy extends React.Component {
 
   render () {
     return (
-      <div>
-        <h2>{ this.state.puppy.name }</h2>
+      <div className="text-center">
         <img src={this.state.puppy.image} />
+        <h2>{ this.state.puppy.name }</h2>
+        <button><Link to="/puppies">Back to Home</Link></button>
       </div>
     );
   }

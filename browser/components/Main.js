@@ -5,7 +5,7 @@ import AllPuppies from './AllPuppies';
 import SinglePuppy from './SinglePuppy';
 
 const Main = () => (
-  <div className="container flexbox-container">
+  <div className="flex-container">
     <div className="jumbotron">
       <Router>
         <Switch>

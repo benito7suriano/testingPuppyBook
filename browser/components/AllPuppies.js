@@ -1,6 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 class AllPuppies extends React.Component {
   constructor() {
@@ -19,13 +19,16 @@ class AllPuppies extends React.Component {
 
   render() {
     return (
-      <ul className="list-unstyled">
-        {this.state.puppies.map(puppy => (
-          <li key={puppy.id}>
-            <Link to={"/puppies/" + puppy.id}>{puppy.name}</Link>
-          </li>
-        ))}
-      </ul>
+      <div className="text-center">
+        <h3>Puppies!</h3>
+        <ul className="list-unstyled">
+          {this.state.puppies.map(puppy => (
+            <li key={puppy.id}>
+              <Link to={"/puppies/" + puppy.id}>{puppy.name}</Link>
+            </li>
+          ))}
+        </ul>
+      </div>
     );
   }
 }
