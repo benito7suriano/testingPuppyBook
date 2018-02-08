@@ -12,9 +12,9 @@ class AllPuppies extends React.Component {
 
   componentDidMount() {
     axios.get('/api/puppies')
-    .then(res => res.data)
-    .then(puppies => this.setState({ puppies }))
-    .catch(console.error);
+      .then(res => res.data)
+      .then(puppies => this.setState({ puppies }))
+      .catch(console.error);
   }
 
   render() {
