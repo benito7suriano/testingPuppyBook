@@ -24,7 +24,7 @@ class AllPuppies extends React.Component {
         <ul className="list-unstyled">
           {this.state.puppies.map(puppy => (
             <li key={puppy.id}>
-              <Link to={"/puppies/" + puppy.id}>{puppy.name}</Link>
+              <Link to={`/puppies/${puppy.id}`}>{puppy.name}</Link>
             </li>
           ))}
         </ul>

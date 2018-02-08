@@ -20,6 +20,11 @@ button {
   padding: 0.5rem 0.75rem;
   font-size: 1rem;
   box-shadow: 3px 3px #80808063;
+  cursor: pointer;
+}
+
+button:focus {
+  outline: none;
 }
 
 .flex-container{

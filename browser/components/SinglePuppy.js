@@ -13,17 +13,18 @@ class SinglePuppy extends React.Component {
   componentDidMount () {
     const id = this.props.match.params.puppyId;
     axios.get(`/api/puppies/${id}`)
-    .then(res => res.data)
-    .then(puppy => this.setState({ puppy }))
-    .catch(console.error);
+      .then(res => res.data)
+      .then(puppy => this.setState({ puppy }))
+      .catch(console.error);
   }
 
   render () {
+    const { puppy } = this.state;
     return (
       <div className="text-center">
-        <img src={this.state.puppy.image} />
-        <h2>{ this.state.puppy.name }</h2>
-        <button><Link to="/puppies">Back to Home</Link></button>
+        <img src={puppy.image} />
+        <h2>{puppy.name} ({puppy.age})</h2>
+        <Link to="/puppies"><button>Back to Home</button></Link>
       </div>
     );
   }
