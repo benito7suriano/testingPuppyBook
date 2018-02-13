@@ -15,6 +15,15 @@ a {
   text-decoration: none;
 }
 
+input {
+  height: 2rem;
+  font-size: 0.8rem;
+  padding-left: 0.8rem;
+  border: 1px solid grey;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+}
+
 button {
   border: none;
   padding: 0.5rem 0.75rem;

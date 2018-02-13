@@ -10,6 +10,7 @@ const Puppy = db.define('puppy', {
   },
   image: {
     type: Sequelize.STRING,
+    defaultValue: 'https://loremflickr.com/400/400/dog',
   },
   DOB: {
     type: Sequelize.DATEONLY,
