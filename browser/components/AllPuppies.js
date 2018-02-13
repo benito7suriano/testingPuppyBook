@@ -11,11 +11,13 @@ class AllPuppies extends React.Component {
     this.addPuppy = this.addPuppy.bind(this);
   }
 
-  componentDidMount() {
-    axios.get('/api/puppies')
-      .then(res => res.data)
-      .then(puppies => this.setState({ puppies }))
-      .catch(console.error);
+  async componentDidMount () {
+    try {
+      const res = await axios.get('/api/puppies');
+      this.setState({ puppies: res.data });
+    } catch (err) {
+      console.error(err);
+    }
   }
 
   addPuppy(newPuppy) {

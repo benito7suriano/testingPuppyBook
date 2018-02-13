@@ -2,13 +2,16 @@ import React from 'react';
 import axios from 'axios';
 
 class AddPuppyForm extends React.Component {
-  postPuppy(event) {
+  async postPuppy(event) {
     event.preventDefault();
     const name = event.target.name.value;
     event.target.name.value = '';
-    axios.post('/api/puppies', { name })
-      .then(res => this.props.addPuppy(res.data))
-      .catch(console.error);
+    try {
+      const res = await axios.post('/api/puppies', { name });
+      this.props.addPuppy(res.data);
+    } catch (err) {
+      console.error(err);
+    }
   }
 
   render() {

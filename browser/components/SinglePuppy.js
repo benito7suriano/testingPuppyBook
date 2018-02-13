@@ -10,12 +10,14 @@ class SinglePuppy extends React.Component {
     };
   }
 
-  componentDidMount () {
+  async componentDidMount () {
     const id = this.props.match.params.puppyId;
-    axios.get(`/api/puppies/${id}`)
-      .then(res => res.data)
-      .then(puppy => this.setState({ puppy }))
-      .catch(console.error);
+    try {
+      const res = await axios.get(`/api/puppies/${id}`);
+      this.setState({ puppy: res.data });
+    } catch (err) {
+      console.error(err);
+    }
   }
 
   render () {
