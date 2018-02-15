@@ -6,9 +6,12 @@ const expect = chai.expect;
 chai.use(chaiAsPromised);
 
 describe('Puppy model', () => {
-  // Remember that when we return a promise Mocha handles the async :-)
-  // We don't even need to use async/await syntax sometimes!
+  // Remember that when we return a promise Mocha handles the async
+  // intelligently, so we don't even need to use async/await syntax here!
   before('Synchronize the model', () => Puppy.sync({ force: true }));
+  
+  // `truncate` removes all data in a table without dropping the entire table
+  // and recreating it (which is a bit less expensive than a forced sync)
   beforeEach('Truncate data', () => Puppy.truncate());
 
   describe('Schema', () => {
