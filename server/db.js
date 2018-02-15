@@ -7,9 +7,15 @@ const Puppy = db.define('puppy', {
   name: {
     type: Sequelize.STRING,
     allowNull: false,
+    validate: {
+      notEmpty: true,
+    },
   },
   image: {
     type: Sequelize.STRING,
+    validate: {
+      isUrl: true,
+    },
     defaultValue: 'https://loremflickr.com/400/400/dog',
   },
   DOB: {

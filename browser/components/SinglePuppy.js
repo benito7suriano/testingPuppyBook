@@ -26,7 +26,7 @@ class SinglePuppy extends React.Component {
       <div className="text-center">
         <img src={puppy.image} />
         <div>
-          <h2>{puppy.name} ({puppy.age})</h2>
+          <h2>{puppy.name} (Age: {puppy.age})</h2>
           <Link to="/puppies"><button>Back to Home</button></Link>
         </div>
       </div>
