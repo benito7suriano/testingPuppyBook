@@ -33,7 +33,7 @@ app.get('/api/puppies/:id', async (req, res, next) => {
 app.post('/api/puppies', async (req, res, next) => {
   try {
     const puppy = await Puppy.create({ name: req.body.name });
-    res.json(puppy);
+    res.status(201).json(puppy);
   } catch (err) {
     next(err);
   }
