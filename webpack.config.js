@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 
 module.exports = {
+  mode: 'development',
   entry: './browser/index.js',
   output: {
     path: __dirname,

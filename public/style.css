@@ -43,7 +43,7 @@ button:focus {
   min-height: 100vh;
 }
 
-.jumbotron {
+.container {
   background-color: #EEEEEE;
   padding: 1.5rem 4rem;
   margin: 1rem;
@@ -56,4 +56,14 @@ button:focus {
 .list-unstyled {
   list-style: none;
   padding: 0;
+}
+
+.puppylink {
+  cursor: pointer;
+  color: blue;
+  
+}
+
+.puppylink:hover {
+  text-decoration: underline;
 }

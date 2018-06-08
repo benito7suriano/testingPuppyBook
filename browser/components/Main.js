@@ -1,21 +1,54 @@
-import React from 'react';
-import { HashRouter as Router, Route, Switch } from 'react-router-dom';
+import axios from "axios";
+import React, { Component } from "react";
+import AllPuppies from "./AllPuppies";
+import SinglePuppy from "./SinglePuppy";
 
-import AllPuppies from './AllPuppies';
-import SinglePuppy from './SinglePuppy';
+class Main extends Component {
+  constructor() {
+    super();
+    this.state = {
+      puppies: [],
+      selectedPuppy: {}
+    };
+    this.pickPuppy = this.pickPuppy.bind(this);
+    this.listAll = this.listAll.bind(this);
+  }
 
-const Main = () => (
-  <div className="flex-container">
-    <div className="jumbotron">
-      <Router>
-        <Switch>
-          <Route exact path="/puppies" component={AllPuppies} />
-          <Route path="/puppies/:puppyId" component={SinglePuppy} />
-          <Route component={AllPuppies} />
-        </Switch>
-      </Router>
-    </div>
-  </div>
-);
+  async componentDidMount() {
+    const { data } = await axios.get("/api/puppies");
+    this.setState({
+      puppies: data
+    });
+  }
+
+  pickPuppy(puppyId) {
+    return async () => {
+      const { data } = await axios.get(`/api/puppies/${puppyId}`);
+      this.setState({
+        selectedPuppy: data
+      });
+    };
+  }
+
+  listAll() {
+    this.setState({
+      selectedPuppy: {}
+    });
+  }
+
+  render() {
+    return (
+      <div className="flex-container">
+        <div className="container">
+          {this.state.selectedPuppy.id ? (
+            <SinglePuppy puppy={this.state.selectedPuppy} listAll={this.listAll} />
+          ) : (
+            <AllPuppies puppies={this.state.puppies} pickPuppy={this.pickPuppy} />
+          )}
+        </div>
+      </div>
+    );
+  }
+}
 
 export default Main;
