@@ -7,9 +7,9 @@ const AllPuppies = ({ puppies, pickPuppy }) => (
       <ul className="list-unstyled">
         {puppies.map(puppy => (
           <li key={puppy.id}>
-            <span className="puppylink" onClick={pickPuppy(puppy.id)}>
+            <div role="button" className="puppylink" onClick={pickPuppy(puppy.id)}>
               {puppy.name}
-            </span>
+            </div>
           </li>
         ))}
       </ul>
