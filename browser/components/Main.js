@@ -38,7 +38,8 @@ class Main extends Component {
 
   render() {
     return (
-      <div className="flex-container">
+      <div className="main">
+        <h1>Puppy Book</h1>
         <div className="container">
           {this.state.selectedPuppy.id ? (
             <SinglePuppy puppy={this.state.selectedPuppy} listAll={this.listAll} />
