@@ -1,14 +1,13 @@
 const express = require('express');
 const volleyball = require('volleyball');
-const bodyParser = require('body-parser');
 const path = require('path');
 
 const Puppy = require('./db').models.puppy;
 const app = express();
 
 app.use(volleyball);
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
 app.get('/api/puppies', async (req, res, next) => {

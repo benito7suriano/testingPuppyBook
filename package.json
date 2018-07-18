@@ -5,14 +5,15 @@
   "main": "webpack.config.js",
   "scripts": {
     "seed": "node server/seed.js",
-    "start": "webpack -w & nodemon server/start.js"
+    "start": "npm run start-server & npm run build-watch",
+    "build-watch": "webpack -w",
+    "start-server": "nodemon server/start.js --ignore public"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.17.1",
-    "body-parser": "^1.18.2",
     "express": "^4.14.0",
     "moment": "^2.20.1",
     "pg": "^7.4.1",
@@ -20,7 +21,7 @@
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "sequelize": "^4.33.1",
-    "volleyball": "^1.3.0"
+    "volleyball": "^1.5.1"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
