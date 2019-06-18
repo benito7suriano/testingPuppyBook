@@ -1,7 +1,7 @@
-const Sequelize = require('sequelize');
-const moment = require('moment');
+const Sequelize = require('sequelize')
+const moment = require('moment')
 
-const db = new Sequelize('postgres://localhost/puppybook', { logging: false });
+const db = new Sequelize('postgres://localhost/puppybook', { logging: false })
 
 const Puppy = db.define('puppy', {
   name: {
@@ -25,15 +25,15 @@ const Puppy = db.define('puppy', {
 }, {
   getterMethods: {
     age() {
-      if (!this.DOB) return 'Unknown';
-      const today = new Date();
-      const birthdate = new Date(this.DOB.split());
-      const totalMonths = moment(today).diff(moment(birthdate), 'months');
-      const years = Math.floor(totalMonths / 12);
-      const months = totalMonths % 12;
-      return `${years}yr ${months}mo`;
+      if (!this.DOB) return 'Unknown'
+      const today = new Date()
+      const birthdate = new Date(this.DOB.split())
+      const totalMonths = moment(today).diff(moment(birthdate), 'months')
+      const years = Math.floor(totalMonths / 12)
+      const months = totalMonths % 12
+      return `${years}yr ${months}mo`
     },
   },
-});
+})
 
-module.exports = db;
+module.exports = { db, Puppy }

@@ -1,39 +1,39 @@
-import axios from "axios";
-import React, { Component } from "react";
-import AllPuppies from "./AllPuppies";
-import SinglePuppy from "./SinglePuppy";
+import axios from 'axios'
+import React, { Component } from 'react'
+import AllPuppies from './AllPuppies'
+import SinglePuppy from './SinglePuppy'
 
 class Main extends Component {
   constructor() {
-    super();
+    super()
     this.state = {
       puppies: [],
       selectedPuppy: {}
-    };
-    this.pickPuppy = this.pickPuppy.bind(this);
-    this.listAll = this.listAll.bind(this);
+    }
+    this.pickPuppy = this.pickPuppy.bind(this)
+    this.listAll = this.listAll.bind(this)
   }
 
   async componentDidMount() {
-    const { data } = await axios.get("/api/puppies");
+    const { data } = await axios.get('/api/puppies')
     this.setState({
       puppies: data
-    });
+    })
   }
 
   pickPuppy(puppyId) {
     return async () => {
-      const { data } = await axios.get(`/api/puppies/${puppyId}`);
+      const { data } = await axios.get(`/api/puppies/${puppyId}`)
       this.setState({
         selectedPuppy: data
-      });
-    };
+      })
+    }
   }
 
   listAll() {
     this.setState({
       selectedPuppy: {}
-    });
+    })
   }
 
   render() {
@@ -48,8 +48,8 @@ class Main extends Component {
           )}
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default Main;
+export default Main
