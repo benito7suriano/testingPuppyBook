@@ -20,7 +20,7 @@ const Puppy = db.define('puppy', {
   },
   DOB: {
     type: Sequelize.DATEONLY,
-    defaultValue: new Date(),
+    defaultValue: new Date()
   },
 }, {
   getterMethods: {
