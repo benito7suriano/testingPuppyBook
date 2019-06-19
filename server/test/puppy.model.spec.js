@@ -46,7 +46,7 @@ describe('Puppy model', () => {
 
       let now = new Date(ss)
 
-      now = '2019-06-18'
+      now = now.toISOString().slice(0,10)
 
       expect(doggo.DOB).to.equal(now)
     })

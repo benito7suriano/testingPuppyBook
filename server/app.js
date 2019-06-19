@@ -2,7 +2,7 @@ const express = require('express')
 const volleyball = require('volleyball')
 const path = require('path')
 
-const Puppy = require('./db').models.puppy
+const { Puppy } = require('./db')
 const app = express()
 
 app.use(volleyball)
