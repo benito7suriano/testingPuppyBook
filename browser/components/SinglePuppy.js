@@ -1,4 +1,4 @@
-import React from './node_modules/react'
+import React from 'react'
 
 const SinglePuppy = ({ puppy, listAll }) => (
   <div className="text-center">
