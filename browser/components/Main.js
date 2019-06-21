@@ -1,5 +1,5 @@
-import axios from 'axios'
-import React, { Component } from 'react'
+import axios from './node_modules/axios'
+import React, { Component } from './node_modules/react'
 import AllPuppies from './AllPuppies'
 import SinglePuppy from './SinglePuppy'
 

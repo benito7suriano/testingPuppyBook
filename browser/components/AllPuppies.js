@@ -1,4 +1,4 @@
-import React from "react";
+import React from './node_modules/react'
 
 const AllPuppies = ({ puppies, pickPuppy }) => (
   <div className="text-center">
@@ -15,6 +15,6 @@ const AllPuppies = ({ puppies, pickPuppy }) => (
       </ul>
     </div>
   </div>
-);
+)
 
-export default AllPuppies;
+export default AllPuppies

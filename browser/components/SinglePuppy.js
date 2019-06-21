@@ -1,4 +1,4 @@
-import React from "react";
+import React from './node_modules/react'
 
 const SinglePuppy = ({ puppy, listAll }) => (
   <div className="text-center">
@@ -10,6 +10,6 @@ const SinglePuppy = ({ puppy, listAll }) => (
       <button onClick={listAll}>List all Puppies</button>
     </div>
   </div>
-);
+)
 
-export default SinglePuppy;
+export default SinglePuppy
