@@ -27,7 +27,23 @@ describe('Puppy routes', () => {
   })
 
   describe('GET /api/puppies/:id', () => {
-    it('responds with 200 and the correct puppy')
+    it('responds with 200 and the correct puppy', async () => {
+      const onePupCreation = [
+        Puppy.create({ name: 'One' })
+      ]
+
+      await Promise.all(onePupCreation)
+
+      await request(app)
+      .get('/api/puppies/1')
+      .expect(200)
+      .then((res) => {
+        // expect(res.body).to.have.lengthOf(1)
+        // expect(res.body)
+
+        console.log('Just got ONE puppy', res)
+      })
+    })
   })
 
   describe('POST /api/puppies', () => {
