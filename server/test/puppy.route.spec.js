@@ -27,26 +27,32 @@ describe('Puppy routes', () => {
   })
 
   describe('GET /api/puppies/:id', () => {
-    it('responds with 200 and the correct puppy', async () => {
-      const onePupCreation = [
-        Puppy.create({ name: 'One' })
-      ]
-
-      await Promise.all(onePupCreation)
+    it('responds with 200 and the correct puppy', async () => {         const puppy = await Puppy.create({ id: 1, name: 'One' })
 
       await request(app)
       .get('/api/puppies/1')
       .expect(200)
       .then((res) => {
-        // expect(res.body).to.have.lengthOf(1)
-        // expect(res.body)
-
-        console.log('Just got ONE puppy', res)
+        expect(res.body.name).to.equal(puppy.name)
       })
     })
   })
 
   describe('POST /api/puppies', () => {
-    it('creates the puppy and responds with 201')
+    it('creates the puppy and responds with 201', async () => {
+      await request(app)
+      .post('/api/puppies')
+      .send({id: 3, name: 'Three'})
+      .expect(201)
+      .then((res) => {
+        expect(res.body.name).to.equal('Three')
+      })
+
+      const three = Puppy.findOne({
+        where: {name: 'Three'}
+      })
+
+      expect(three).to.exist
+    })
   })
 })
