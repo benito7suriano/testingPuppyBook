@@ -38,7 +38,7 @@
     "chai-url": "^1.0.4",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
-    "mocha": "^6.1.4",
+    "mocha": "^10.2.0",
     "sinon": "^7.3.2",
     "supertest": "^4.0.2",
     "webpack": "^4.12.0",
